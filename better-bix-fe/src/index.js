@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import {reducer} from './store/reducers'; 
 import './index.css';
 import App from './App';
+import './fonts/Sansation-Regular.ttf';
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
