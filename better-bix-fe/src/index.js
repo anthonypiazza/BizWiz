@@ -5,9 +5,10 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import {reducer} from './store/reducers'; 
+import reducer from './store/reducers'; 
 import './index.css';
 import App from './App';
+import './fonts/Sansation-Regular.ttf';
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
