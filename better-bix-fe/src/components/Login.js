@@ -21,9 +21,15 @@ const Login = (props) => {
     console.log(loginBody)
     return(
         <div>
-            <form>
-                <input onChange={changeHandler} name='username'/>
-                <input onChange={changeHandler} name='password'/>
+            <form style={{display: 'flex', flexDirection: 'column'}}>
+                <label>
+                    Username:
+                    <input onChange={changeHandler} name='username'/>
+                </label>
+                <label>
+                    Password:
+                    <input onChange={changeHandler} name='password'/>
+                </label>
             </form>
             <button onClick={submitUser}>Login</button>
         </div>

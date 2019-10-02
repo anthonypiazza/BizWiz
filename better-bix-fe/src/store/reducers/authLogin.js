@@ -3,7 +3,8 @@ import { LOGIN_USER_START, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL } from '../action
 const initialState = {
     isPosting: false,
     token: {},
-    error: {}
+    error: {},
+    isLoggedIn: false
 }
 
 export const login = (state = initialState, action) => {
@@ -16,11 +17,13 @@ export const login = (state = initialState, action) => {
         case LOGIN_USER_SUCCESS:
             return{
                 isPosting: false,
+                isLoggedIn: true,
                 user: action.payload
             }
         case LOGIN_USER_FAIL:
             return{
                 isPosting: false,
+                isLoggedIn: false,
                 error: action.payload
             }
         default:

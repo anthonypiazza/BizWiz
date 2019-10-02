@@ -22,7 +22,7 @@ const Register = (props) => {
     console.log(registerBody)
     return(
         <div>
-            <form>
+            <form style={{display: 'flex', flexDirection: 'column'}}>
                 <label>
                     Username:
                     <input onChange={changeHandler} name='username'/>
