@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
 export const GET_BUSINESS_START = 'GET_BUSINESS_START';
@@ -9,7 +8,6 @@ export const GET_BUSINESS_FAIL = 'GET_BUSINESS_FAIL';
 export const bizGetListing = () => dispatch => {
     dispatch({ type: GET_BUSINESS_START })
     axiosWithAuth()
-    axios
         .get('http://localhost:8000/api/biz/listings')
         .then(res => {
             dispatch({ type: GET_BUSINESS_SUCCESS, payload: res.data })

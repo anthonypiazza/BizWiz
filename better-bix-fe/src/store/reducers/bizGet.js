@@ -1,6 +1,6 @@
 import { GET_BUSINESS_START, GET_BUSINESS_SUCCESS, GET_BUSINESS_FAIL } from '../actions'
 
-const initialState = {
+export const initialState = {
     isGetting: false,
     entireBizArray: [],
     error: {}

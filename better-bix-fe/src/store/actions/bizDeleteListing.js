@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {axiosWithAuth} from '../../utils/axiosWithAuth';
 
 export const DELETE_BUSINESS_START = 'DELETE_BUSINESS_START';
@@ -9,7 +8,6 @@ export const DELETE_BUSINESS_FAIL = 'DELETE_BUSINESS_FAIL';
 export const bizDeleteListing = (id) => dispatch => {
     dispatch({ type: DELETE_BUSINESS_START })
     axiosWithAuth()
-    axios
         .delete(`http://localhost:8000/api/biz/listings/${id}`)
         .then(res => {
             dispatch({ type: DELETE_BUSINESS_SUCCESS, payload: res.data })

@@ -1,8 +1,9 @@
 import { DELETE_BUSINESS_START, DELETE_BUSINESS_SUCCESS, DELETE_BUSINESS_FAIL } from '../actions'
+import {initialState as get} from './bizGet';
 
 const initialState = {
     isDeleting: false,
-    remainingBiz: [],
+    remainingBiz: get.entireBizArray,
     error: {}
 }
 

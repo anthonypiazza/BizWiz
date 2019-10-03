@@ -5,7 +5,7 @@ export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
 export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 
 
-export const loginUser = (user) => dispatch => {
+export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_USER_START })
     axios
         .post('http://localhost:8000/api/auth/login', user)
@@ -13,6 +13,7 @@ export const loginUser = (user) => dispatch => {
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data })
             const token = res.data.token;
             localStorage.setItem('token', token)
+            history.push('/dashboard')
             console.log('LOGIN_USER_SUCCESS', res.data)
         })
         .catch(err => {

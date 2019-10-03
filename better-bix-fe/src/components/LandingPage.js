@@ -5,11 +5,17 @@ import Arrow from '../assets/arrow.png';
 import Data from '../assets/analytics.png';
 import Stars from '../assets/five-stars.png';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
+
+    const getStarted = (e) => {
+        e.preventDefault();
+        props.history.push('/register')
+    }
+
     return(
         <div>
-            <div style={{marginTop: '-100px', marginBottom: '50px'}}>
-                <h1 style={{ fontSize: '3rem'}}>Biz Smarter, Not Harder.</h1>
+            <div style={{marginTop: '0px', marginBottom: '20px'}}>
+                <h1 style={{ fontSize: '3rem', margin: '10px'}}>Biz Smarter, Not Harder.</h1>
                 <hr style={{margin: '0px 35%'}}/>
             </div>
             <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '-110px'}}>
@@ -32,7 +38,7 @@ const LandingPage = () => {
                     <img src={Stars} alt="You Improve"/>
                 </div>   
             </div>
-            <button style={{margin: '0px 45% 0px 45%', cursor: 'pointer', border: '1px solid white', borderRadius: '5px', backgroundColor: 'white', color: '#423aba', padding: '20px', fontSize: '1.3rem', fontFamily: 'Sansation'}}>GET STARTED</button>
+            <button onClick={getStarted} style={{margin: '0px 45% 0px 45%', cursor: 'pointer', border: '1px solid white', borderRadius: '5px', backgroundColor: 'white', color: '#423aba', padding: '20px', fontSize: '1.3rem', fontFamily: 'Sansation'}}>GET STARTED</button>
         </div>
     )
 }
