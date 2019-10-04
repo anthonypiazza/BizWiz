@@ -1,20 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 
-import {bizGetListing} from '../store/actions'
-import {bizDeleteListing} from '../store/actions'
+import {bizGetListing} from '../store/actions';
+import {bizDeleteListing} from '../store/actions';
 import BizListCard from './BizListCard';
+import BizListAddCard from './BizListAddCard';
 
 const BizList = (props) => {
 
-    const updateBizPush = (e) => {
+    const updateBizPush = (bizID, e) => {
         e.preventDefault();
-        props.history.push('/bizupdate')
+        props.history.push(`/bizupdate/${bizID}`)
     }
 
-    const viewStats = (e) => {
+    const viewStats = (bizID, e) => {
         e.preventDefault();
-        props.history.push('/bizstats')
+        props.history.push(`/bizstats/${bizID}`)
     }
 
     const deleteBizEvent = (bizID, e) => {
@@ -28,7 +29,6 @@ const BizList = (props) => {
         props.history.push('/bizadd')
     }
 
-    const [selectedBiz, setSelectedBiz] = useState()
 
     const {bizGetListing, bizArray} = props
     
@@ -43,7 +43,7 @@ const BizList = (props) => {
         <div style={{display: 'flex', flexDirection: 'column', marginTop: '50px'}}>
             <h1 style={{fontSize: '2.5rem', marginBottom: '0px'}}>YOUR BIZ LISTINGS</h1>
             <hr style={{width: '15%', marginBottom: '45px'}}/>
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
                 {props.bizArray.length === 0 ? null : (
                     props.bizArray.map((biz, index) => (
                         <BizListCard 
@@ -55,15 +55,7 @@ const BizList = (props) => {
                         />
                     ))
                 )}
-                <div style={{margin: '0px 6%', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-                    <div style={{height: '350px', display: 'flex', flexDirection: 'column', backgroundColor: '#423ABA', color: 'white', padding: '20px 10px', width: '300px', justifyContent: 'space-around'}}>
-                        <button onClick={addBizEvent} style={{width: '100%', height: '100%', color: 'white', border: 'none', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                            <h2 style={{fontSize: '1.6rem', margin: '10px', fontFamily: 'Sansation'}}>ADD NEW BIZ</h2>
-                            <h2 style={{fontSize: '1.6rem', margin: '0px'}}>+</h2>
-                        </button>
-                    </div>
-                    <div style={{zIndex: '-10', marginTop: '-15px', height: '30px', width: '120%', borderRadius: '50%', backgroundColor: '#C4C4C4'}}></div>
-                </div>
+                <BizListAddCard addBizEvent={addBizEvent} />
             </div>
         </div>
     )

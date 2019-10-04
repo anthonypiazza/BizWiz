@@ -14,8 +14,13 @@ const BizUpdate = (props) => {
     }
     const updateThisBiz = (e) => {
         e.preventDefault();
-        props.bizUpdateListing(businessBody, props.history)
+        props.bizUpdateListing(businessBody, bizID, props.history)
     }
+    const sliceIndex = window.location.href.lastIndexOf('/') + 1
+
+    const bizID = parseInt(window.location.href.slice(sliceIndex))
+
+    console.log(businessBody)
 
     return(
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center'}}>
@@ -36,6 +41,7 @@ const BizUpdate = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+
     }
 }
 

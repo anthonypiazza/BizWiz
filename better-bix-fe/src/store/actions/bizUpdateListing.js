@@ -8,7 +8,7 @@ export const UPDATE_BUSINESS_FAIL = 'UPDATE_BUSINESS_FAIL';
 export const bizUpdateListing = (user, id, history) => dispatch => {
     dispatch({ type: UPDATE_BUSINESS_START })
     axiosWithAuth()
-        .post(`http://localhost:8000/api/biz/listings/update/${id}`, user)
+        .put(`https://bizrecommendations.herokuapp.com/api/biz/listings/update/${id}`, user)
         .then(res => {
             dispatch({ type: UPDATE_BUSINESS_SUCCESS, payload: res.data })
             console.log('UPDATE_BUSINESS_SUCCESS', res.data)

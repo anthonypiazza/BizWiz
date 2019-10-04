@@ -8,7 +8,7 @@ export const GET_BUSINESS_FAIL = 'GET_BUSINESS_FAIL';
 export const bizGetListing = () => dispatch => {
     dispatch({ type: GET_BUSINESS_START })
     axiosWithAuth()
-        .get('http://localhost:8000/api/biz/listings')
+        .get('https://bizrecommendations.herokuapp.com/api/biz/listings')
         .then(res => {
             dispatch({ type: GET_BUSINESS_SUCCESS, payload: res.data })
             console.log('GET_BUSINESS_SUCCESS', res.data)

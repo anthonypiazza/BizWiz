@@ -20,7 +20,7 @@ const Register = (props) => {
 
     const submitUser = (e) => {
         e.preventDefault();
-        props.registerUser(registerBody);
+        props.registerUser(registerBody, props.history);
     }
 
     console.log(registerBody)
@@ -42,7 +42,7 @@ const Register = (props) => {
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column', padding: '15px'}}>
                         <label style={{textAlign: 'left', paddingBottom: '2px'}}>PASSWORD:</label>
-                        <input style={{fontFamily: 'Sansation', padding: '7px 1%'}} onChange={changeHandler} name='password'/>
+                        <input style={{fontFamily: 'Sansation', padding: '7px 1%'}} type='password' onChange={changeHandler} name='password'/>
                     </div>
                     <button style={{fontFamily: 'Sansation', fontSize: '1.3rem', margin: '15px', border: 'none', backgroundColor: 'white', padding: '9px 0%', color: '#423ABA'}} onClick={submitUser}>REGISTER</button>
                 </form>

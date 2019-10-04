@@ -4,11 +4,10 @@ export const ADD_BUSINESS_START = 'ADD_BUSINESS_START';
 export const ADD_BUSINESS_SUCCESS = 'ADD_BUSINESS_SUCCESS';
 export const ADD_BUSINESS_FAIL = 'ADD_BUSINESS_FAIL';
 
-
 export const bizAddListing = (user, history) => dispatch => {
     dispatch({ type: ADD_BUSINESS_START })
     axiosWithAuth()
-        .post('http://localhost:8000/api/biz/listings', user)
+        .post('https://bizrecommendations.herokuapp.com/api/biz/listings', user)
         .then(res => {
             dispatch({ type: ADD_BUSINESS_SUCCESS, payload: res.data })
             history.push('/dashboard')

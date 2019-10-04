@@ -1,9 +1,17 @@
-import { GET_BUSINESS_START, GET_BUSINESS_SUCCESS, GET_BUSINESS_FAIL } from '../actions'
+import { 
+    GET_BUSINESS_START, 
+    GET_BUSINESS_SUCCESS, 
+    GET_BUSINESS_FAIL, 
+    DELETE_BUSINESS_START, 
+    DELETE_BUSINESS_SUCCESS, 
+    DELETE_BUSINESS_FAIL
+} from '../actions'
 
 export const initialState = {
     isGetting: false,
     entireBizArray: [],
-    error: {}
+    error: {},
+    isDeleting: false
 }
 
 export const bizGet = (state = initialState, action) => {
@@ -21,6 +29,21 @@ export const bizGet = (state = initialState, action) => {
         case GET_BUSINESS_FAIL:
             return{
                 isGetting: false,
+                error: action.payload
+            }
+        case DELETE_BUSINESS_START:
+            return{
+                ...state,
+                isDeleting: true
+            }
+        case DELETE_BUSINESS_SUCCESS:
+            return{
+                isDeleting: false,
+                entireBizArray: action.payload
+            }
+        case DELETE_BUSINESS_FAIL:
+            return{
+                isDeleting: false,
                 error: action.payload
             }
         default:

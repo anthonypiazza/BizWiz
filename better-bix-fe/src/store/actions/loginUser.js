@@ -8,7 +8,7 @@ export const LOGIN_USER_FAIL = 'LOGIN_USER_FAIL';
 export const loginUser = (user, history) => dispatch => {
     dispatch({ type: LOGIN_USER_START })
     axios
-        .post('http://localhost:8000/api/auth/login', user)
+        .post('https://bizrecommendations.herokuapp.com/api/auth/login', user)
         .then(res => {
             dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data })
             const token = res.data.token;

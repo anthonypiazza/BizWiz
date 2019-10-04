@@ -46,9 +46,9 @@ const App = (props) => {
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={BizList} />
-      <Route exact path="/bizstats" component={Stats} />
+      <Route exact path="/bizstats/:id" component={Stats} />
       <Route exact path="/bizadd" component={BizAdd} />
-      <Route exact path="/bizupdate" component={BizUpdate} />
+      <Route exact path='/bizupdate/:id' component={BizUpdate} />
       <Footer />
     </div>
   );

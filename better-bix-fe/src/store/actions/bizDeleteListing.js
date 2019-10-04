@@ -8,7 +8,7 @@ export const DELETE_BUSINESS_FAIL = 'DELETE_BUSINESS_FAIL';
 export const bizDeleteListing = (id) => dispatch => {
     dispatch({ type: DELETE_BUSINESS_START })
     axiosWithAuth()
-        .delete(`http://localhost:8000/api/biz/listings/${id}`)
+        .delete(`https://bizrecommendations.herokuapp.com/api/biz/listings/${id}`)
         .then(res => {
             dispatch({ type: DELETE_BUSINESS_SUCCESS, payload: res.data })
             console.log('DELETE_BUSINESS_SUCCESS', res.data)
