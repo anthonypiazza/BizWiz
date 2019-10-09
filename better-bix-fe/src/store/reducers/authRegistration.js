@@ -2,8 +2,8 @@ import { REGISTER_USER_START, REGISTER_USER_SUCCESS, REGISTER_USER_FAIL } from '
 
 const initialState = {
     isPosting: false,
-    user: [],
-    error: []
+    successfulLogin: {},
+    error: {}
 }
 
 export const registration = (state = initialState, action) => {
@@ -16,7 +16,7 @@ export const registration = (state = initialState, action) => {
         case REGISTER_USER_SUCCESS:
             return{
                 isPosting: false,
-                user: action.payload
+                successfulLogin: action.payload
             }
         case REGISTER_USER_FAIL:
             return{

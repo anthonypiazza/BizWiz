@@ -5,12 +5,13 @@ export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
 export const REGISTER_USER_FAIL = 'REGISTER_USER_FAIL';
 
 
-export const registerUser = (user) => dispatch => {
+export const registerUser = (user, history) => dispatch => {
     dispatch({ type: REGISTER_USER_START })
     axios
-        .post('http://localhost:8000/api/auth/register', user)
+        .post('https://bizrecommendations.herokuapp.com/api/auth/register', user)
         .then(res => {
             dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data })
+            history.push('/login')
             console.log('REGISTER_USER_SUCCESS', res.data)
         })
         .catch(err => {
